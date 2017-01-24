@@ -60,7 +60,7 @@ class Logger_model extends \CI_Model {
 			'referrer' => $this->agent->referrer(),
 			'platform' => $this->agent->platform(),
 			'mobile' => $this->agent->mobile(),
-			'post_fields' => $this->get_post_fields();
+			'post_fields' => $this->get_post_fields()
 		];
 	}
 

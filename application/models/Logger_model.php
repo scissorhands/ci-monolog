@@ -55,11 +55,11 @@ class Logger_model extends \CI_Model {
 	{
 		return [
 			'url' => $this->uri->uri_string(),
-			'ip' => $this->input->ip_address(),
+			'ip' => $this->input->ip_address()==''? $this->input->ip_address() : null,
 			'http_method' => strtoupper($this->input->method()),
-			'referrer' => $this->agent->referrer(),
+			'referrer' => $this->agent->referrer()==''? $this->agent->referrer(): null,
 			'platform' => $this->agent->platform(),
-			'mobile' => $this->agent->mobile(),
+			'mobile' => $this->agent->mobile()==''? $this->agent->mobile(): null,
 			'post_fields' => $this->get_post_fields()
 		];
 	}
@@ -73,7 +73,7 @@ class Logger_model extends \CI_Model {
 				$data[$key] = $value;
 			}
 		}
-		return json_encode($data);
+		return $data? json_encode($data) : null;;
 	}
 
 }

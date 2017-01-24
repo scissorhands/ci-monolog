@@ -7,7 +7,6 @@ application/helpers/*
 application/language/*
 application/libraries/*
 application/logs/*
-application/models/*
 application/third_party/*
 application/views/*
 system/*

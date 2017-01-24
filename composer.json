@@ -1,0 +1,22 @@
+{
+    "name": "scissorhands/ci-logs",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Edward Scissorhands",
+            "email": "edward_beats@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "monolog/monolog": "^1.22",
+        "wazaari/monolog-mysql": "^1.0",
+        "scissorhands/ci-utilities": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "ciutil\\": "vendor/scissorhands/ci-utilities/"
+        }
+    }
+}

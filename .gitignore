@@ -1,6 +1,20 @@
-*/config/development
-*/logs/log-*.php
-!*/logs/index.html
-*/cache/*
-!*/cache/index.html
-!*/cache/.htaccess
+# Ignore everything
+application/cache/*
+application/config/*
+application/core/*
+application/hooks/*
+application/helpers/*
+application/language/*
+application/libraries/*
+application/logs/*
+application/models/*
+application/third_party/*
+application/views/*
+system/*
+vendor/*
+logs/*.log
+.htaccess
+/index.php
+*/index.html
+
+# But not these files...

@@ -5,7 +5,7 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use MySQLHandler\MySQLHandler;
 
-class Logger_model extends CI_Model {
+class Logger_model extends \CI_Model {
 	private $_logger = null;
 	private $mySQLHandler;
 	private $default_fields = ['url', 'ip', 'http_method', 'referrer', 'platform', 'mobile', 'post_fields'];

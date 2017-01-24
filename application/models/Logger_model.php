@@ -15,7 +15,7 @@ class Logger_model extends \CI_Model {
 	{
 		parent::__construct();
 		$this->load->library('user_agent');
-		$this->pdo = new PDO(
+		$this->pdo = new \PDO(
 			'mysql:host='.$this->db->hostname.
 			';dbname='.$this->db->database, 
 			$this->db->username, 

@@ -3,7 +3,7 @@ A simple integration of Codeigniter and Monolog
 
 ## Installation
 Install using from composer
-´composer install scissorhands/ci-logs´ 
+`composer require scissorhands/ci-logs` 
 
 ## Test
 Edit autoload on composer.json file

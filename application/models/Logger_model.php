@@ -55,11 +55,11 @@ class Logger_model extends \CI_Model {
 	{
 		return [
 			'url' => $this->uri->uri_string(),
-			'ip' => $this->input->ip_address()==''? $this->input->ip_address() : null,
+			'ip' => $this->input->ip_address()!=''? $this->input->ip_address() : null,
 			'http_method' => strtoupper($this->input->method()),
-			'referrer' => $this->agent->referrer()==''? $this->agent->referrer(): null,
+			'referrer' => $this->agent->referrer()!=''? $this->agent->referrer(): null,
 			'platform' => $this->agent->platform(),
-			'mobile' => $this->agent->mobile()==''? $this->agent->mobile(): null,
+			'mobile' => $this->agent->mobile()!=''? $this->agent->mobile(): null,
 			'post_fields' => $this->get_post_fields()
 		];
 	}

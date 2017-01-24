@@ -37,24 +37,32 @@ class Create_logs_table extends \CI_Migration {
 			'ip' => [
 				"type" => "VARCHAR",
 				"constraint" => 32,
+				'null' => true,
+				'default' => null
 			],
 			'http_method' => [
 				"type" => "VARCHAR",
 				"constraint" => 16,
+				'null' => true,
+				'default' => null
 			],
 			'referrer' => [
 				"type" => "VARCHAR",
-				"constraint" => 255
+				"constraint" => 255,
+				'null' => true,
+				'default' => null
 			],
 			'platform' => [
 				"type" => "VARCHAR",
 				"constraint" => 64,
-				'null' => true
+				'null' => true,
+				'default' => null
 			],
 			'mobile' => [
 				"type" => "VARCHAR",
 				"constraint" => 64,
-				'null' => true
+				'null' => true,
+				'default' => null
 			],
 			'post_fields' => [
 				"type" => "VARCHAR",

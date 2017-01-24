@@ -10,6 +10,7 @@ class Logger_model extends \CI_Model {
 	private $mySQLHandler;
 	private $default_fields = ['url', 'ip', 'http_method', 'referrer', 'platform', 'mobile', 'post_fields'];
 	private $pdo;
+	private $exclude_post_fields = [];
 
 	public function __construct()
 	{
@@ -34,6 +35,7 @@ class Logger_model extends \CI_Model {
 	{
 		$log_table = isset($config['log_table']) ? $config['log_table'] : 'logs';
 		$extra_fields = isset($config['extra_fields']) ? array_merge( $this->default_fields, $config['extra_fields']) : $this->default_fields;
+		$this->exclude_post_fields = isset( $config['exclude_post_fields'] ) ? $config['exclude_post_fields'] : [];
 		$this->mySQLHandler = new MySQLHandler($this->pdo, $log_table, $extra_fields, Logger::DEBUG);
 
 		$this->_logger = new Logger($channel);
@@ -58,8 +60,20 @@ class Logger_model extends \CI_Model {
 			'referrer' => $this->agent->referrer(),
 			'platform' => $this->agent->platform(),
 			'mobile' => $this->agent->mobile(),
-			'post_fields' => $this->input->post()? json_encode($this->input->post()) : null
+			'post_fields' => $this->get_post_fields();
 		];
+	}
+
+	private function get_post_fields()
+	{
+		$post = $this->input->post();
+		$data = [];
+		foreach ($post as $key => $value) {
+			if( !in_array($key, $this->exclude_post_fields) ){
+				$data[$key] = $value;
+			}
+		}
+		return json_encode($data);
 	}
 
 }

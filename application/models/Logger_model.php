@@ -1,5 +1,5 @@
 <?php
-namespace Scissorhands\CIMonolog\Models;
+namespace cilogs\application\models;
 defined('BASEPATH') OR exit('No direct script access allowed');
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;

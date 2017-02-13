@@ -11,7 +11,7 @@
     "minimum-stability": "dev",
     "require": {
         "monolog/monolog": "^1.22",
-        "wazaari/monolog-mysql": "^1.0",
+        "wazaari/monolog-mysql": "1.0.3",
         "scissorhands/ci-utilities": "^1.1"
     },
     "autoload": {

@@ -15,5 +15,6 @@ logs/*.log
 .htaccess
 /index.php
 */index.html
+.phpintel/
 
 # But not these files...

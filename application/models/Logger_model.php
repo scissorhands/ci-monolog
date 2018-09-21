@@ -31,7 +31,7 @@ class Logger_model extends \CI_Model {
 	 * @param String $channel: name of the logs channel
 	 * @param (Optional) Array $config: fields ['log_table'(String), 'extra_fields'(String array)]
 	 **/
-	public function init( $channel = 'general', $config = [] )
+	public function init( $channel = 'general', $config = [], $file_handler = false )
 	{
 		$log_table = isset($config['log_table']) ? $config['log_table'] : 'logs';
 		$extra_fields = isset($config['extra_fields']) ? array_merge( $this->default_fields, $config['extra_fields']) : $this->default_fields;
@@ -39,7 +39,9 @@ class Logger_model extends \CI_Model {
 		$this->mySQLHandler = new MySQLHandler($this->pdo, $log_table, $extra_fields, Logger::DEBUG);
 
 		$this->_logger = new Logger($channel);
-		$this->_logger->pushHandler(new StreamHandler('logs/app_logs.log', Logger::INFO) );
+		if($file_handler){
+			$this->_logger->pushHandler(new StreamHandler('logs/app_logs.log', Logger::INFO) );
+		}
 		$this->_logger->pushHandler($this->mySQLHandler);
 	}
 
